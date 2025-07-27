@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,7 +11,8 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-    {
+    {  
+
          \App\Models\User::create([
             'nama'=>'Administrator',
             'username'=>'admin',
@@ -19,14 +20,21 @@ class DatabaseSeeder extends Seeder
             'password'=> bcrypt('password'),
     ]);
 
+        \App\Models\Kategori::create([
+            'nama_kategori' => 'Makanan',
+        ]);
+
+        \App\Models\Kategori::create([
+            'nama_kategori' =>'Minuman',
+        ]);
+
         \App\Models\User::create([
              'nama' => 'Petugas',
              'username' => 'petugas',
              'role' => 'petugas',
              'password'=> bcrypt('password'),
         ]);
-    }
-}
+    
 
         \App\Models\Pelanggan::create([
             'nama'=>'Dodo Sidodo',
@@ -39,3 +47,20 @@ class DatabaseSeeder extends Seeder
             'alamat'=>'Kalipucang',
             'nomor_tlp'=>'082288866677'
         ]);
+
+        \App\Models\Produk::create([
+            'kategori_id'=>1,
+            'kode_produk'=>'1001',
+            'nama_produk'=>'Chiki Taro',
+            'harga'=>5000
+        ]);
+
+        \App\Models\Produk::create([
+            'kategori_id'=>2,
+            'kode_produk'=>'1002',
+            'nama_produk'=>'Le Minerale',
+            'harga'=>3500
+        ]);
+
+    }
+}

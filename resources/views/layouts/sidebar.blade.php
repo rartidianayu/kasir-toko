@@ -11,6 +11,11 @@
              <x-nav-item title="Pelanggan" icon="fas fa-users"
              :routes="['pelanggan.index','pelanggan.create','pelanggan.edit']"/>
 
+             @can('admin')
+            <x-nav-item title="Kategori" icon="fas fa-list"
+            :routes="['kategori.index', 'kategori.create', 'kategori.edit']"/>
+            @endcan
+
             @can('admin')
             <x-nav-item title="User" icon="fas fa-user-tie"
             :routes="['user.index', 'user.create', 'user.edit']"/>
